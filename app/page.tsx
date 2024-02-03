@@ -1,5 +1,8 @@
 import Image from "next/image";
+import { OAuthProvider } from "@/typings";
 import YouTube from "./_components/youtube";
+
+const options: OAuthProvider[] = ["google", "facebook"];
 
 export default function Home() {
   return (
@@ -41,7 +44,9 @@ export default function Home() {
       </div>
 
       <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <YouTube onSuccess={() => {}} onFailure={() => {}} />
+        <div className="flex flex-col gap-8">
+          <YouTube onSuccess={() => {}} onFailure={() => {}} />
+        </div>
       </div>
     </main>
   );
