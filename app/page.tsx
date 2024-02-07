@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { OAuthProvider } from "@/typings";
+import OAuthOption from "./_components/oauth-option";
 import YouTube from "./_components/youtube";
 
 const options: OAuthProvider[] = ["google", "facebook"];
@@ -45,7 +46,9 @@ export default function Home() {
 
       <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
         <div className="flex flex-col gap-8">
-          <YouTube onSuccess={() => {}} onFailure={() => {}} />
+          {options.map((provider) => (
+            <OAuthOption key={provider} provider={provider} />
+          ))}
         </div>
       </div>
     </main>
